@@ -17,7 +17,7 @@
 
 - (void) blockBasedAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	void(^handler)(NSInteger) = (__bridge_transfer void(^)(NSInteger)) contextInfo;
-	handler(returnCode);
+	if (handler) handler(returnCode);
 }
 
 @end
